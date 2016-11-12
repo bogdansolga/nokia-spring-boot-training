@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>d01-s01</artifactId>
+    <artifactId>d01s01</artifactId>
 
     <dependencies>
         <dependency>
