@@ -14,7 +14,7 @@
     </parent>
 
     <modules>
-        <module>s01</module>
+        <module>d01s01</module>
     </modules>
 
 </project>
