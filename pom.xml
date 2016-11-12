@@ -19,6 +19,7 @@
 
     <modules>
         <module>d01</module>
+        <module>d02</module>
     </modules>
 
     <properties>

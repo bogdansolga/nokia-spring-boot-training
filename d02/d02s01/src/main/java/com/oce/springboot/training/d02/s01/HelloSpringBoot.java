@@ -1,4 +1,4 @@
-package com.oce.springboot.training.d01.s01;
+package com.oce.springboot.training.d02.s01;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
