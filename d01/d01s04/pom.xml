@@ -14,7 +14,7 @@
     </parent>
 
     <modules>
-        <module>component-model</module>
+        <module>d01s04e01-component-model</module>
     </modules>
 
     <dependencies>
