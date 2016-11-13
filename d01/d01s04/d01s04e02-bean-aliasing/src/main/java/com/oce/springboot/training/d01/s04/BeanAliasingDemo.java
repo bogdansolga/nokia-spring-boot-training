@@ -15,7 +15,7 @@ public class BeanAliasingDemo {
     public static void main(String[] args) {
         final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanAliasingConfig.class);
 
-        final ProductRepository productRepository = applicationContext.getBean("prodRepo", ProductRepository.class);//ProductRepository.class);
+        final ProductRepository productRepository = applicationContext.getBean("prodRepo", ProductRepository.class);
         productRepository.displayProducts();
     }
 }
