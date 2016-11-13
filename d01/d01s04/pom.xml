@@ -15,6 +15,7 @@
 
     <modules>
         <module>d01s04e01-component-model</module>
+        <module>d01s04e03-bean-aliasing</module>
     </modules>
 
     <dependencies>
