@@ -1,0 +1,22 @@
+package com.oce.springboot.training.d01.s03;
+
+import com.oce.springboot.training.d01.s03.config.ComponentScanConfig;
+import com.oce.springboot.training.d01.s03.service.ProductService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+/**
+ * A simple demo of a Spring project which wires the {@link org.springframework.context.annotation.Bean}s through
+ * {@link org.springframework.context.annotation.ComponentScan}ing
+ *
+ * @author bogdan.solga
+ */
+public class ComponentScanDemo {
+
+    public static void main(String[] args) {
+        final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ComponentScanConfig.class);
+
+        final ProductService productService = applicationContext.getBean(ProductService.class);
+        productService.displayProducts();
+    }
+}

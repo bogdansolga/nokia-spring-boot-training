@@ -17,6 +17,7 @@
         <module>bean-attributes</module>
         <module>bean-parameters</module>
         <module>pre-and-post-annotations</module>
+        <module>component-scan</module>
     </modules>
 
     <dependencies>
