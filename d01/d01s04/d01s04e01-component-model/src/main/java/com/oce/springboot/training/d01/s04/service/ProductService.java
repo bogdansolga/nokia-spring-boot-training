@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * A simple product {@link Service}, which uses the {@link ProductRepository} as a collaborator
+ * A simple product {@link Service}, which uses the {@link ProductRepository} as an {@link Autowired} collaborator
  *
  * @author bogdan.solga
  */
