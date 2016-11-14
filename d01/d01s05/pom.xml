@@ -16,6 +16,7 @@
     <modules>
         <module>d01s05e01-bean-scopes</module>
         <module>d01s05e02-bean-profiles</module>
+        <module>d01s05e03-environment-usage</module>
     </modules>
 
     <dependencies>
