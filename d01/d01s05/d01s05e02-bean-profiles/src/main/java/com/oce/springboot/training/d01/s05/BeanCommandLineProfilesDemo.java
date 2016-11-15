@@ -2,7 +2,6 @@ package com.oce.springboot.training.d01.s05;
 
 import com.oce.springboot.training.d01.s05.config.BeanProfilesConfig;
 import com.oce.springboot.training.d01.s05.config.ProfileEnabledConfig;
-import com.oce.springboot.training.d01.s05.config.Profiles;
 import com.oce.springboot.training.d01.s05.service.ProductService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -15,11 +14,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class BeanCommandLineProfilesDemo {
 
     public static void main(String[] args) {
-        // we need to set the profile before registering the config class
-        final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        applicationContext.getEnvironment().setActiveProfiles(Profiles.DEV);
-        applicationContext.register(BeanProfilesConfig.class, ProfileEnabledConfig.class);
-        applicationContext.refresh();
+        // the profiles specifying parameter ('-Dspring.profiles.active') is set as a command-line argument
+        final AnnotationConfigApplicationContext applicationContext =
+                new AnnotationConfigApplicationContext(BeanProfilesConfig.class, ProfileEnabledConfig.class);
 
         final ProductService productService = applicationContext.getBean(ProductService.class);
         productService.displayProducts();
