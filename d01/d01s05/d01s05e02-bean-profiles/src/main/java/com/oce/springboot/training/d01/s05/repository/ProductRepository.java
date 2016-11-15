@@ -1,13 +1,10 @@
 package com.oce.springboot.training.d01.s05.repository;
 
-import org.springframework.stereotype.Repository;
-
 /**
  * A simple product repository
  *
  * @author bogdan.solga
  */
-@Repository
 public class ProductRepository {
 
     private final String databaseType;
