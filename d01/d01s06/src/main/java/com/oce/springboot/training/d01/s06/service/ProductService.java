@@ -1,12 +1,10 @@
 package com.oce.springboot.training.d01.s06.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 /**
- * A simple product {@link Service}, which uses the {@link Environment} as an {@link Autowired} collaborator
+ * A simple product {@link Service}, which wires the configured properties using the {@link Value} annotation
  *
  * @author bogdan.solga
  */
