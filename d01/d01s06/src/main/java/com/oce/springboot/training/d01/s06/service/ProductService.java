@@ -20,9 +20,13 @@ public class ProductService {
     @Value("${connection.timeout}")
     private int connectionTimeout;
 
+    @Value("${version.number}")
+    private Double versionNumber;
+
     public void displayLoadedProperties() {
         System.out.println("The remote endpoint is '" + remoteEndpointURL + "'");
         System.out.println("The metrics are enabled: " + metricsEnabled);
         System.out.println("The connection timeout is " + connectionTimeout);
+        System.out.println("The version number is " + versionNumber);
     }
 }
