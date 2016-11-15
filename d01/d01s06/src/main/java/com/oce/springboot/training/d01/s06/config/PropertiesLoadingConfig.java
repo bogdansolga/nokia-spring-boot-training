@@ -12,5 +12,5 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @ComponentScan(basePackages = "com.oce.springboot.training.d01.s06")
 @PropertySource(value = "application.properties")
-public class BeanProfilesConfig {
+public class PropertiesLoadingConfig {
 }
