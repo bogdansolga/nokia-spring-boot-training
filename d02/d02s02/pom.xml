@@ -18,6 +18,7 @@
         <module>d02s02e02-yaml-files</module>
         <module>d02s02e03-config-per-profile</module>
         <module>d02s02e04-config-override</module>
+        <module>d02s02e05-loading-properties-files</module>
     </modules>
 
     <dependencies>
