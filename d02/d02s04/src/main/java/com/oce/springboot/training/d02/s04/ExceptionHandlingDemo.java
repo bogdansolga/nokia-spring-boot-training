@@ -4,7 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * A small Spring Boot demo used to showcase the usage of a REST service with OXM serialization using DTOs
+ * A small Spring Boot demo used to showcase the Spring centralized exception handling,
+ * using an {@link org.springframework.web.bind.annotation.ControllerAdvice} annotated class and several
+ * {@link org.springframework.web.bind.annotation.ExceptionHandler} annotated methods
  *
  * @author bogdan.solga
  */
