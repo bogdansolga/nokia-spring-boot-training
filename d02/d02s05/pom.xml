@@ -4,20 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>d02</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>d02s05</artifactId>
 
     <parent>
         <groupId>com.oce</groupId>
-        <artifactId>spring-boot.training</artifactId>
+        <artifactId>d02</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <modules>
-        <module>d02s01</module>
-        <module>d02s02</module>
-        <module>d02s03</module>
-        <module>d02s04</module>
-        <module>d02s05</module>
+        <module>d02s05e01-embedded-database</module>
     </modules>
 </project>
