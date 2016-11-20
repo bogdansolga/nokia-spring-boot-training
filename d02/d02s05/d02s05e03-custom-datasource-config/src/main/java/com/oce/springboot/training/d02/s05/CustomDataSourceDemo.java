@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  *
  * @author bogdan.solga
  */
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class CustomDataSourceDemo {
 
     public static void main(String[] args) {
