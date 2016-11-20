@@ -16,5 +16,6 @@
     <modules>
         <module>d02s05e01-embedded-database</module>
         <module>d02s05e02-real-database</module>
+        <module>d02s05e03-custom-datasource-config</module>
     </modules>
 </project>
