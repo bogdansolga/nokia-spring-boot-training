@@ -17,6 +17,7 @@
         <module>d02s03e01-spring-web-annotations</module>
         <module>d02s03e02-spring-oxm-demo</module>
         <module>d02s03e03-spring-oxm-dto-demo</module>
+        <module>d02s03e04-static-content</module>
     </modules>
 
     <dependencies>
