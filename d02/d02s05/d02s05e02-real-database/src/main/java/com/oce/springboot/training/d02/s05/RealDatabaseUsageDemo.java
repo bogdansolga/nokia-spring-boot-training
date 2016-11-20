@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * A small Spring Boot demo used to demo the usage of a local PostgreSQL database
+ * A small Spring Boot app used to demo the usage of a local PostgreSQL database
  *
  * @author bogdan.solga
  */
