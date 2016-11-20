@@ -17,12 +17,12 @@ import javax.annotation.PostConstruct;
  */
 @Configuration
 @EnableJpaRepositories(basePackages = "com.oce.springboot.training.d02.s05.repository")
-public class DatasourceConfig {
+public class DataSourceConfig {
 
     private final ProductService productService;
 
     @Autowired
-    public DatasourceConfig(final ProductService productService) {
+    public DataSourceConfig(final ProductService productService) {
         this.productService = productService;
     }
 
