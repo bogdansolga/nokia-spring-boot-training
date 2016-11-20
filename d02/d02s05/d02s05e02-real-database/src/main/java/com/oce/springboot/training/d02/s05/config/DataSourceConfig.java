@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
  * A simple {@link javax.sql.DataSource} configuration, which:
  * <ul>
  *     <li>configures the JPA repositories, using the {@link EnableJpaRepositories} annotation</li>
- *     <li>inserts a simple {@link Product} in the auto-wired [in-memory] database</li>
+ *     <li>inserts a simple {@link Product} in the database, using the auto-configured {@link javax.sql.DataSource}</li>
  * </ul>
  */
 @Configuration
