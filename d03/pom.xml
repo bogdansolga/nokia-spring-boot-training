@@ -15,5 +15,6 @@
 
     <modules>
         <module>d03s01</module>
+        <module>d03s02</module>
     </modules>
 </project>
