@@ -15,5 +15,6 @@
 
     <modules>
         <module>d03s01e01-conditional-annotations</module>
+        <module>d03s01e02-configuration-properties</module>
     </modules>
 </project>
