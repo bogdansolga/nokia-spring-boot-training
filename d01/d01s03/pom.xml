@@ -17,7 +17,7 @@
         <module>d01s03e01-component-scan</module>
         <module>d01s03e02-bean-attributes</module>
         <module>d01s03e03-bean-parameters</module>
-        <module>d01s03e03-pre-and-post-annotations</module>
+        <module>d01s03e04-pre-and-post-annotations</module>
     </modules>
 
     <dependencies>
