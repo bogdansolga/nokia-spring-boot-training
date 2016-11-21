@@ -20,4 +20,9 @@ public class DemoConfig {
     public FirstSpringBean firstSpringBean() {
         return new FirstSpringBean();
     }
+
+    @Bean
+    public FirstSpringBean otherFirstSpringBean() {
+        return new FirstSpringBean();
+    }
 }

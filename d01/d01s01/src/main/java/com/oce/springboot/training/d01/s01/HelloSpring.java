@@ -13,6 +13,6 @@ public class HelloSpring {
         firstSpringBean.displayDescription();
 
         // retrieving a bean by it's ID
-        System.out.println(applicationContext.getBean("helloSpring"));
+        //System.out.println(applicationContext.getBean("helloSpring"));
     }
 }
