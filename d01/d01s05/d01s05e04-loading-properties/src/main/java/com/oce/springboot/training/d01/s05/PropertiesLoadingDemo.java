@@ -1,7 +1,7 @@
-package com.oce.springboot.training.d01.s06;
+package com.oce.springboot.training.d01.s05;
 
-import com.oce.springboot.training.d01.s06.config.PropertiesLoadingConfig;
-import com.oce.springboot.training.d01.s06.service.ProductService;
+import com.oce.springboot.training.d01.s05.config.PropertiesLoadingConfig;
+import com.oce.springboot.training.d01.s05.service.ProductService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

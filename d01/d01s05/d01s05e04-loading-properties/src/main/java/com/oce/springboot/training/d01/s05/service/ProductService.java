@@ -1,4 +1,4 @@
-package com.oce.springboot.training.d01.s06.service;
+package com.oce.springboot.training.d01.s05.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
