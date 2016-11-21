@@ -1,4 +1,4 @@
-package com.oce.springboot.training.d02.s01;
+package com.oce.springboot.training.d03.s01;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
