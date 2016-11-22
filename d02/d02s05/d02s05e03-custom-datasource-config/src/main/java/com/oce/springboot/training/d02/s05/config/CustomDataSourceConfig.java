@@ -33,6 +33,7 @@ public class CustomDataSourceConfig {
         propertyResolver = new RelaxedPropertyResolver(environment, "spring.datasource.");
     }
 
+    // if the @Bean is commented, the configured data-source will be wired
     @Bean
     public DataSource dataSource() {
         final HikariConfig hikariConfig = new HikariConfig();
