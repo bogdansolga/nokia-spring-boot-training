@@ -1,8 +1,8 @@
-package com.msgsystems.training.w04d04;
+package com.oce.springboot.training.d03s03;
 
-import com.msgsystems.training.w04d04.model.Product;
-import com.msgsystems.training.w04d04.repository.ProductRepository;
-import com.msgsystems.training.w04d04.service.ProductService;
+import com.oce.springboot.training.d03s03.model.Product;
+import com.oce.springboot.training.d03s03.repository.ProductRepository;
+import com.oce.springboot.training.d03s03.service.ProductService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -32,7 +32,7 @@ public class ProductServiceTest {
     public void shouldGetProductsWhenThereAreAvailableProducts() {
         // arrange
         final List<Product> products = Arrays.asList(new Product(1, "Asus"), new Product(2, "Dell"));
-        when(productRepository.getProducts()).thenReturn(products);
+        when(productRepository.findAll()).thenReturn(products);
 
         // act
         final List<Product> resulted = productService.getProducts();
@@ -44,7 +44,7 @@ public class ProductServiceTest {
 
     @Test
     public void shouldNotGetAnyProductsWhenThereAreNoAvailableProducts() {
-        when(productRepository.getProducts()).thenReturn(null);
+        when(productRepository.findAll()).thenReturn(null);
 
         final List<Product> resulted = productService.getProducts();
 
@@ -58,7 +58,7 @@ public class ProductServiceTest {
         when(product.getName()).thenReturn(mockedName);
         when(product.getId()).thenReturn(20);
 
-        when(productRepository.get(anyInt())).thenReturn(product);
+        when(productRepository.findOne(anyInt())).thenReturn(product);
 
         final Product resulted = productService.getProduct(25);
 
@@ -69,7 +69,7 @@ public class ProductServiceTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldGetAProductByIdWhenTheProductDoesNotExist() {
-        when(productRepository.get(anyInt())).thenReturn(null);
+        when(productRepository.findOne(anyInt())).thenReturn(null);
 
         final Product resulted = productService.getProduct(13);
 
@@ -84,7 +84,7 @@ public class ProductServiceTest {
 
         final String response = productService.saveProduct(product);
 
-        verify(productRepository, times(1)).saveProduct(product);
+        verify(productRepository, times(1)).save(product);
 
         assertNotNull(response);
         assertThat(response.length(), not(0));

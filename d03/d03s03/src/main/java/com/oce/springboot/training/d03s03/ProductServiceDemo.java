@@ -1,6 +1,5 @@
-package com.msgsystems.training.w04d04;
+package com.oce.springboot.training.d03s03;
 
-import com.msgsystems.training.w04d04.config.ProductServiceConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ProductServiceDemo {
 
     public static void main(String[] args) {
-        new SpringApplication(ProductServiceConfig.class).run(args);
+        new SpringApplication(ProductServiceDemo.class).run(args);
     }
 }
