@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,12 +27,17 @@ public class ProductService {
     }
 
     public ProductDTO get(final int id) {
-        return getProductConverter().apply(productRepository.get(id));
+        final Product product =
+                Optional.ofNullable(productRepository.get(id))
+                        .orElseThrow(() -> new IllegalArgumentException("There is no product with the id " + id));
+
+        return getProductConverter().apply(product);
     }
 
     public List<ProductDTO> getAll() {
         return productRepository.getAll()
-                                .stream()
+                                .parallelStream()
+                                .filter(filterItem())
                                 .map(getProductConverter())
                                 .collect(Collectors.toList());
     }
@@ -49,5 +56,9 @@ public class ProductService {
 
     private Function<Product, ProductDTO> getProductConverter() {
         return product -> new ProductDTO(product.getId(), product.getName());
+    }
+
+    private Predicate<Product> filterItem() {
+        return product -> product.getName().isEmpty() || product.getId() > 20;
     }
 }
