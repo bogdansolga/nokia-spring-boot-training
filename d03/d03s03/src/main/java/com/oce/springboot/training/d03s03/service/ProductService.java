@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -34,13 +33,9 @@ public class ProductService {
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     public List<Product> getProducts() {
-        final Iterable<Product> allProducts = productRepository.findAll();
-
-        return Optional.ofNullable(allProducts).map(items -> {
-            final List<Product> returned = new ArrayList<>();
-            items.forEach(returned::add);
-            return returned;
-        }).orElse(null);
+        final List<Product> products = new ArrayList<>();
+        productRepository.findAll().forEach(products::add);
+        return products;
     }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)

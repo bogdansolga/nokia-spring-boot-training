@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -44,11 +45,11 @@ public class ProductServiceTest {
 
     @Test
     public void shouldNotGetAnyProductsWhenThereAreNoAvailableProducts() {
-        when(productRepository.findAll()).thenReturn(null);
+        when(productRepository.findAll()).thenReturn(new ArrayList<>());
 
         final List<Product> resulted = productService.getProducts();
 
-        assertNull(resulted);
+        assertThat(resulted.size(), is(0));
     }
 
     @Test
