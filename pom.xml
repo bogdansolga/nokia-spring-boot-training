@@ -29,7 +29,9 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <restassured.version>2.9.0</restassured.version>
         <spring-boot.version>1.4.2.RELEASE</spring-boot.version>
+        <testng.version>6.9.13.6</testng.version>
     </properties>
 
     <dependencyManagement>
@@ -37,6 +39,14 @@
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.jayway.restassured</groupId>
+                <artifactId>rest-assured</artifactId>
+                <version>${restassured.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <dependency>
@@ -67,6 +77,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <version>${spring-boot.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>${testng.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
