@@ -23,7 +23,7 @@ public class ProductService {
     }
 
     public void create(final ProductDTO productDTO) {
-        validateValidRequest(productDTO);
+        validateRequest(productDTO);
 
         productRepository.create(getDTOConverter().apply(productDTO));
     }
@@ -41,7 +41,7 @@ public class ProductService {
     }
 
     public void update(final int id, final ProductDTO productDTO) {
-        validateValidRequest(productDTO);
+        validateRequest(productDTO);
         validateAndGetProduct(id);
 
         productRepository.update(id, getDTOConverter().apply(productDTO));
@@ -60,9 +60,9 @@ public class ProductService {
         return product -> new ProductDTO(product.getId(), product.getName());
     }
 
-    private void validateValidRequest(final ProductDTO productDTO) {
+    private void validateRequest(final ProductDTO productDTO) {
         Optional.ofNullable(productDTO)
-                .orElseThrow(() -> new NotFoundException("Cannot process a null product"));
+                .orElseThrow(() -> new IllegalArgumentException("Cannot process a null product"));
     }
 
     private Product validateAndGetProduct(final int id) {
