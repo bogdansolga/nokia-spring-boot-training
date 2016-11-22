@@ -18,7 +18,7 @@ public class RequestResponseBodyController {
             method = RequestMethod.POST,
             path = "/requestBody"
     )
-    public String requestBody(@RequestBody String request) {
+    public @ResponseBody String requestBody(@RequestBody String request) {
         return "Getting the body of a POST request using the @RequestBody annotation";
     }
 
