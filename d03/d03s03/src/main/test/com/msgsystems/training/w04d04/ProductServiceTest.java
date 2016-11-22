@@ -1,4 +1,4 @@
-package java.com.msgsystems.training.w04d04;
+package com.msgsystems.training.w04d04;
 
 import com.msgsystems.training.w04d04.model.Product;
 import com.msgsystems.training.w04d04.repository.ProductRepository;
