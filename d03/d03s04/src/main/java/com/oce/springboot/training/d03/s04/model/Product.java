@@ -1,4 +1,4 @@
-package com.oce.springboot.training.d02.s05.model;
+package com.oce.springboot.training.d03.s04.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,7 +1,7 @@
-package com.oce.springboot.training.d02.s05.controller;
+package com.oce.springboot.training.d03.s04.controller;
 
-import com.oce.springboot.training.d02.s05.model.Product;
-import com.oce.springboot.training.d02.s05.service.ProductService;
+import com.oce.springboot.training.d03.s04.model.Product;
+import com.oce.springboot.training.d03.s04.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
