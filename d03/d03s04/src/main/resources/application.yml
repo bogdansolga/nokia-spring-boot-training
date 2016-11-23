@@ -41,3 +41,14 @@ endpoints:
 
   info:
     enabled: true
+
+  metrics:
+    enabled: true
+
+info:
+  app:
+    java:
+      source: 1.8
+      target: 1.8
+  owner: OCE
+  key: value
