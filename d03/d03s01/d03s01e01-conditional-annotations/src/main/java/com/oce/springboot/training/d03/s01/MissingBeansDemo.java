@@ -18,7 +18,7 @@ public class MissingBeansDemo {
         final String conditionalOnClass = applicationContext.getBean("conditionalOnClass", String.class);
         System.out.println("conditionalOnClass bean was found - " + conditionalOnClass);
 
-        final String conditionalOnProperty = applicationContext.getBean("conditionalOnProperty", String.class);
-        System.out.println("conditionalOnProperty bean was found - " + conditionalOnProperty);
+        //final String conditionalOnProperty = applicationContext.getBean("conditionalOnProperty", String.class);
+        //System.out.println("conditionalOnProperty bean was found - " + conditionalOnProperty);
     }
 }
