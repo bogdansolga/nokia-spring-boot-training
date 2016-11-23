@@ -11,4 +11,56 @@
         <artifactId>d03</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+
+                <configuration>
+                    <executable>true</executable>
+                    <mainClass>com.oce.springboot.training.d03.s05.ProjectPackagingDemo</mainClass>
+
+                    <!-- if one / several profiles need to be used
+                    <profiles>
+                        <profile>dev</profile>
+                    </profiles>
+                    -->
+                </configuration>
+
+                <!-- repackage the jar that is built during the Maven 'package' phase -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <!-- if the app needs to be started in debug mode
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>springloaded</artifactId>
+                        <version>${spring.loaded.version}</version>
+                    </dependency>
+                </dependencies>
+
+                <configuration>
+                    <jvmArguments>
+                        -Djava.rmi.server.hostname=localhost -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
+                    </jvmArguments>
+                </configuration>
+                -->
+            </plugin>
+        </plugins>
+    </build>
 </project>
