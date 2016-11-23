@@ -20,6 +20,8 @@
     </dependencies>
 
     <build>
+        <finalName>oce-spring-boot-training-${version}</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
