@@ -29,6 +29,8 @@
                     <executable>true</executable>
                     <mainClass>com.oce.springboot.training.d03.s05.ProjectPackagingDemo</mainClass>
 
+                    <jvmArguments>-server -Xms128m -Xmx128m</jvmArguments>
+
                     <!-- if one / several profiles need to be used
                     <profiles>
                         <profile>dev</profile>
