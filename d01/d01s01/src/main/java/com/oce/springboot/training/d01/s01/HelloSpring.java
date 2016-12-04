@@ -3,6 +3,11 @@ package com.oce.springboot.training.d01.s01;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+/**
+ * A first demo for the usage of Spring {@link org.springframework.context.annotation.Bean}s
+ *
+ * @author bogdan.solga
+ */
 public class HelloSpring {
 
     public static void main(String[] args) {
