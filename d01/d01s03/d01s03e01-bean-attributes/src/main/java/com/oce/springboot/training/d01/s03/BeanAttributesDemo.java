@@ -23,7 +23,7 @@ public class BeanAttributesDemo {
          * Study:
          *      - what happens when we comment the @Primary annotation
          *      - how to retrieve and use the non-primary bean
-         *      - the initialization of the @Lazy annotated bean, by toggling the usage of the 'productRepository'
+         *      - the initialization of the @Lazy annotated bean, by retrieving the @Lazy ProductService
          */
     }
 }
