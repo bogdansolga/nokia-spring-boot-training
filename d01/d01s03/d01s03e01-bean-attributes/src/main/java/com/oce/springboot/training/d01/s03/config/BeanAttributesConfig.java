@@ -15,21 +15,21 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 public class BeanAttributesConfig {
 
-    @Lazy
     @Bean
     public ProductRepository productRepository() {
-        System.out.println("Initializing the 'productRepository' bean");
         return new ProductRepository();
     }
 
     @Primary
     @Bean
-    public ProductService primaryProductService() {
-        return new ProductService(productRepository(), "primaryProductService");
-    }
-
-    @Bean
     public ProductService productService() {
         return new ProductService(productRepository(), "productService");
+    }
+
+    @Lazy
+    @Bean
+    public ProductService lazyProductService() {
+        System.out.println("Initializing the lazy ProductService...");
+        return new ProductService(productRepository(), "lazyProductService");
     }
 }
