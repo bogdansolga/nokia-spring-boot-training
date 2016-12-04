@@ -1,4 +1,4 @@
-package com.oce.springboot.training.d01.s04.repository;
+package com.oce.springboot.training.d01.s03.repository;
 
 import org.springframework.stereotype.Repository;
 

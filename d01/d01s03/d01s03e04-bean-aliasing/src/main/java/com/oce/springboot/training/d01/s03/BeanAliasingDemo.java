@@ -1,7 +1,7 @@
-package com.oce.springboot.training.d01.s04;
+package com.oce.springboot.training.d01.s03;
 
-import com.oce.springboot.training.d01.s04.config.BeanAliasingConfig;
-import com.oce.springboot.training.d01.s04.repository.ProductRepository;
+import com.oce.springboot.training.d01.s03.repository.ProductRepository;
+import com.oce.springboot.training.d01.s03.config.BeanAliasingConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
