@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * A first demo for the usage of Spring {@link org.springframework.context.annotation.Bean}s
+ * A first demo for the usage of a few simple Spring {@link org.springframework.context.annotation.Bean}s
  *
  * @author bogdan.solga
  */
