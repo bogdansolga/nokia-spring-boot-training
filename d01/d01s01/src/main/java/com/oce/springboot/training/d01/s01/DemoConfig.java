@@ -21,7 +21,10 @@ public class DemoConfig {
         return new FirstSpringBean();
     }
 
-    @Bean
+    /**
+     * This bean is commented by default, so that we won't have two beans of the same type in the Spring IoC container
+     */
+    //@Bean
     public FirstSpringBean otherFirstSpringBean() {
         return new FirstSpringBean();
     }
