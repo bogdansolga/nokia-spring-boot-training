@@ -1,7 +1,7 @@
-package com.oce.springboot.training.d01.s03;
+package com.oce.springboot.training.d01.s04;
 
-import com.oce.springboot.training.d01.s03.config.ComponentScanConfig;
-import com.oce.springboot.training.d01.s03.service.ProductService;
+import com.oce.springboot.training.d01.s04.config.ComponentScanConfig;
+import com.oce.springboot.training.d01.s04.service.ProductService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

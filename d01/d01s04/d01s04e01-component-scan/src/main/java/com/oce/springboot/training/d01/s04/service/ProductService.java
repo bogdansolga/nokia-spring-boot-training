@@ -1,6 +1,6 @@
-package com.oce.springboot.training.d01.s03.service;
+package com.oce.springboot.training.d01.s04.service;
 
-import com.oce.springboot.training.d01.s03.repository.ProductRepository;
+import com.oce.springboot.training.d01.s04.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.oce.springboot.training.d01.s03.config;
+package com.oce.springboot.training.d01.s04.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Configuration;
  * @author bogdan.solga
  */
 @Configuration
-@ComponentScan(basePackages = "com.oce.springboot.training.d01.s03")
+@ComponentScan(basePackages = "com.oce.springboot.training.d01.s04")
 public class ComponentScanConfig {
 }
