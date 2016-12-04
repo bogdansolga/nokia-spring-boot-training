@@ -15,7 +15,7 @@
 
     <modules>
         <module>d01s04e01-component-scan</module>
-        <module>d01s04e01-component-model</module>
+        <module>d01s04e02-component-model</module>
         <module>d01s04e02-bean-qualifying</module>
     </modules>
 
