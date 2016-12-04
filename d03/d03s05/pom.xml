@@ -20,7 +20,7 @@
     </dependencies>
 
     <build>
-        <finalName>oce-spring-boot-training-${version}</finalName>
+        <finalName>oce-spring-boot-training-${project.version}</finalName>
 
         <plugins>
             <plugin>
