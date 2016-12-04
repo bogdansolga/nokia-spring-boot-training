@@ -22,6 +22,7 @@ public class BeanAttributesConfig {
         return new ProductRepository();
     }
 
+    @Primary
     @Bean
     public ProductService primaryProductService() {
         return new ProductService(productRepository(), "primaryProductService");
