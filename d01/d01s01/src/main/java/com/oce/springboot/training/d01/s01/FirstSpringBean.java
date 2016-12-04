@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Bean;
 public class FirstSpringBean {
 
     void displayDescription() {
-        System.out.println("A sample of a minimal Spring bean");
+        System.out.println("A minimal Spring bean");
     }
 }
