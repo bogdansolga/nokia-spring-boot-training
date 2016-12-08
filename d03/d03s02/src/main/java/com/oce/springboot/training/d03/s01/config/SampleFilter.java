@@ -22,6 +22,7 @@ public class SampleFilter implements Filter {
     public void doFilter(final ServletRequest servletRequest, final ServletResponse servletResponse,
                          final FilterChain filterChain)
             throws IOException, ServletException {
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override
