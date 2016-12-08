@@ -16,6 +16,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.util.Collections;
 
@@ -41,26 +42,36 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
         .formLogin();
 
-        /*
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-        Authentication authentication = securityContext.getAuthentication();
-        authentication.setAuthenticated(true);
-        */
+        // setAuthenticated();
+        // setAuthenticationDetails();
+        // obtainAuthContext();
 
-        // create 'manual' authentication
-        SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
-        Authentication authentication = new UsernamePasswordAuthenticationToken("john", "doe",
-                Collections.singleton(new SimpleGrantedAuthority("ADMIN")));
-        authentication.setAuthenticated(true);
-        securityContext.setAuthentication(authentication);
-
-        // obtaining the security context
-        SecurityContext existingContex = SecurityContextHolder.getContext();
-        existingContex.getAuthentication();
+        // adding a new filter
+        http.addFilterAfter(new SampleFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(10);
+    }
+
+    private void setAuthenticated() {
+        final SecurityContext securityContext = SecurityContextHolder.getContext();
+        Authentication authentication = securityContext.getAuthentication();
+        authentication.setAuthenticated(true);
+    }
+
+    private void setAuthenticationDetails() {
+        SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
+        Authentication authentication = new UsernamePasswordAuthenticationToken("john", "doe",
+                Collections.singleton(new SimpleGrantedAuthority("ADMIN")));
+        authentication.setAuthenticated(true);
+        securityContext.setAuthentication(authentication);
+    }
+
+    private void obtainAuthContext() {
+        // obtaining the security context
+        SecurityContext existingContex = SecurityContextHolder.getContext();
+        existingContex.getAuthentication();
     }
 }
