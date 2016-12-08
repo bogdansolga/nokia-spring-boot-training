@@ -19,6 +19,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 @EnableWebSecurity
@@ -28,7 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-            .passwordEncoder(passwordEncoder())
+            //.passwordEncoder(passwordEncoder())
             .withUser("user")
             .password("password")
             .roles("USER");
@@ -63,15 +65,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private void setAuthenticationDetails() {
         SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
-        Authentication authentication = new UsernamePasswordAuthenticationToken("john", "doe",
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken("john", "doe",
                 Collections.singleton(new SimpleGrantedAuthority("ADMIN")));
         authentication.setAuthenticated(true);
+
+        Map<String, String> map = new HashMap<>();
+        map.put("key", "value");
+        authentication.setDetails(map);
+
         securityContext.setAuthentication(authentication);
     }
 
     private void obtainAuthContext() {
         // obtaining the security context
-        SecurityContext existingContex = SecurityContextHolder.getContext();
-        existingContex.getAuthentication();
+        SecurityContext existingContext = SecurityContextHolder.getContext();
+        existingContext.getAuthentication();
     }
 }
