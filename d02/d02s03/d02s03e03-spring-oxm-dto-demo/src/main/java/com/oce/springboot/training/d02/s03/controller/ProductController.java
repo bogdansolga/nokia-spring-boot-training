@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -43,7 +46,7 @@ public class ProductController {
             method = RequestMethod.POST,
             path = ""
     )
-    public ResponseEntity create(@RequestBody ProductDTO productDTO) {
+    public ResponseEntity create(@RequestBody @Valid ProductDTO productDTO) {
         productService.create(productDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
@@ -57,9 +60,13 @@ public class ProductController {
      */
     @RequestMapping(
             method = RequestMethod.GET,
-            path = "/{id}"
+            path = "/{id}",
+            produces = {
+                    "application/vnd.oce.product+json"
+            }
     )
-    public ProductDTO getProduct(@PathVariable final int id) {
+    public ProductDTO getProduct(@PathVariable final int id, final HttpServletRequest request,
+                                 final HttpServletResponse response) {
         return productService.get(id);
     }
 
