@@ -1,5 +1,6 @@
 package com.oce.springboot.training.d01.s05.service;
 
+import com.oce.springboot.training.d01.s05.config.Profiles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,10 @@ public class ProductService {
     }
 
     public void displayProducts() {
+        if (environment.acceptsProfiles(Profiles.PROD)) {
+            System.out.println("Running with prod");
+        }
+
         System.out.println("Displaying the products for the '" + Arrays.asList(environment.getActiveProfiles()) + "' profiles...");
     }
 }
