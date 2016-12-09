@@ -18,7 +18,7 @@ public class BeanParametersConfig {
         return new ProductRepository();
     }
 
-    @Bean(destroyMethod = "close")
+    @Bean(destroyMethod = "onClose", initMethod = "init")
     public ProductService productService() {
         return new ProductService(productRepository());
     }
