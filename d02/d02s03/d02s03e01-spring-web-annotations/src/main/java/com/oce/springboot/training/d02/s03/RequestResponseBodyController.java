@@ -19,7 +19,7 @@ public class RequestResponseBodyController {
             path = "/requestBody"
     )
     public @ResponseBody String requestBody(@RequestBody String request) {
-        return "Getting the body of a POST request using the @RequestBody annotation";
+        return "Getting the body of a POST request using the @RequestBody annotation - " + request;
     }
 
     @RequestMapping(
