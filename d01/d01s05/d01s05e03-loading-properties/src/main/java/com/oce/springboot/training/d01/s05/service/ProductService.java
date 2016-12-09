@@ -23,10 +23,15 @@ public class ProductService {
     @Value("${version.number}")
     private Double versionNumber;
 
+    @Value("${external.property}")
+    private String externalProperty;
+
     public void displayLoadedProperties() {
         System.out.println("The remote endpoint is '" + remoteEndpointURL + "'");
         System.out.println("The metrics are enabled: " + metricsEnabled);
         System.out.println("The connection timeout is " + connectionTimeout);
         System.out.println("The version number is " + versionNumber);
+
+        System.out.println("The external property is " + externalProperty);
     }
 }
