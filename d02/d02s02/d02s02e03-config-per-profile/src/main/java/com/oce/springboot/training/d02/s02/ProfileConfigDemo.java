@@ -16,7 +16,7 @@ public class ProfileConfigDemo {
         final SpringApplication springApplication = new SpringApplication(ProfileConfigDemo.class);
 
         // running without a profile will throw an exception, as the property doesn't exist in the default config
-        //springApplication.setAdditionalProfiles(Profiles.PROD);
+        springApplication.setAdditionalProfiles(Profiles.DEV);
 
         springApplication.run(args);
     }
