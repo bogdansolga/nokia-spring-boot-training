@@ -1,6 +1,7 @@
 package com.oce.springboot.training.d02.s03.repository;
 
 import com.oce.springboot.training.d02.s03.model.Product;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -9,6 +10,8 @@ import java.util.List;
 
 @Repository
 public class ProductRepository {
+
+    private static final Object MUTEX = new Object();
 
     // an in-memory list of products
     private List<Product> products = new ArrayList<>(1);
@@ -27,13 +30,16 @@ public class ProductRepository {
         return products;
     }
 
+    @Async
     public void create(final Product product) {
         products.add(product);
     }
 
     public void update(final int id, final Product product) {
         final Product currentProduct = products.get(id < products.size() ? id : 0);
-        currentProduct.setName(product.getName());
+        synchronized (MUTEX) {
+            currentProduct.setName(product.getName());
+        }
     }
 
     public void delete(final int id) {
