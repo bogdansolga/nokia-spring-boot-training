@@ -19,7 +19,7 @@ public class ProductService {
         productRepository.displayProducts();
     }
 
-    public void close() {
+    public void onClose() {
         System.out.println("Closing the used resources...");
     }
 }
