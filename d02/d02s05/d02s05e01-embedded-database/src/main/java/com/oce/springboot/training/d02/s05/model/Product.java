@@ -23,6 +23,8 @@ public class Product implements Serializable {
 
     private String name;
 
+    private double price;
+
     public int getId() {
         return id;
     }
@@ -37,6 +39,14 @@ public class Product implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override
