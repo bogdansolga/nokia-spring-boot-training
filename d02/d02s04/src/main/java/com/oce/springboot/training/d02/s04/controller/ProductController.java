@@ -59,8 +59,8 @@ public class ProductController {
             method = RequestMethod.GET,
             path = "/{id}"
     )
-    public ProductDTO getProduct(@PathVariable final int id) {
-        return productService.get(id);
+    public ResponseEntity<ProductDTO> getProduct(@PathVariable final int id) {
+        return new ResponseEntity<>(productService.get(id), HttpStatus.I_AM_A_TEAPOT);
     }
 
     /**
