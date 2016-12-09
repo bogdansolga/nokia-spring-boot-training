@@ -62,4 +62,22 @@ public class ProductControllerTest extends AbstractTransactionalTestNGSpringCont
                 .body("$.size", is(1))
                 .body("[0].name", is(PRODUCT_NAME));
     }
+
+    // a sample of using a dataProvider
+    /*
+    @Test(dataProvider = "dataProvider")
+    public void shouldGetAllProducts(String request, int statusCode) {
+        when()
+                .post("/product", request)
+                .then()
+                .statusCode(statusCode)
+                .body("$.size", is(1))
+                .body("[0].name", is(PRODUCT_NAME));
+    }
+
+    @DataProvider(name = "dataProvider", parallel = false)
+    public Object[][] dataProvider() {
+        return null;
+    }
+    */
 }
