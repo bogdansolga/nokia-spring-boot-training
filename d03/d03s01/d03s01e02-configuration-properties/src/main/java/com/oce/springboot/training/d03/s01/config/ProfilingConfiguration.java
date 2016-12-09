@@ -1,6 +1,9 @@
 package com.oce.springboot.training.d03.s01.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.List;
 
 /**
  * A demo for the usage of a Spring {@link ConfigurationProperties} class
@@ -8,6 +11,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author bogdan.solga
  */
 @ConfigurationProperties(prefix = "profiling")
+@Configuration
 public class ProfilingConfiguration {
 
     private String environment;
@@ -25,6 +29,8 @@ public class ProfilingConfiguration {
 
         private int socketTimeout;
 
+        private List<String> ips;
+
         public int getTimeout() {
             return timeout;
         }
@@ -39,6 +45,14 @@ public class ProfilingConfiguration {
 
         public void setSocketTimeout(int socketTimeout) {
             this.socketTimeout = socketTimeout;
+        }
+
+        public List<String> getIps() {
+            return ips;
+        }
+
+        public void setIps(List<String> ips) {
+            this.ips = ips;
         }
     }
 }
