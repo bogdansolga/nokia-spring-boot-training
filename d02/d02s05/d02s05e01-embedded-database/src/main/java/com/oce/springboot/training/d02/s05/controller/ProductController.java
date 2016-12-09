@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.async.DeferredResult;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
 
 /**
  * A Spring {@link RestController} used to showcase the modeling of a REST controller for CRUD operations
@@ -22,11 +27,12 @@ import org.springframework.web.bind.annotation.RestController;
 )
 public class ProductController {
 
+    private final Executor executor;
     private final ProductService productService;
 
     @Autowired
-    public ProductController(final ProductService productService) {
-        this.productService = productService;
+    public ProductController(final Executor executor, final ProductService productService) {
+        this.executor = executor; this.productService = productService;
     }
 
     /**
@@ -56,8 +62,14 @@ public class ProductController {
             method = RequestMethod.GET,
             path = "/{id}"
     )
-    public Product getProduct(@PathVariable final int id) {
-        return productService.get(id);
+    public DeferredResult<Product> getProduct(@PathVariable final int id)
+            throws ExecutionException, InterruptedException {
+        final CompletableFuture<Product> futureProduct = CompletableFuture.supplyAsync(() -> productService.get(id), executor);
+
+        final DeferredResult<Product> deferredResult = new DeferredResult<>();
+        deferredResult.setResult(futureProduct.get());
+
+        return deferredResult;
     }
 
     /**
