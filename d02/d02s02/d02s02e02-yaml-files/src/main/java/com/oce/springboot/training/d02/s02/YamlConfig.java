@@ -19,7 +19,7 @@ public class YamlConfig {
 
     private final ApplicationContext applicationContext;
 
-    @Value("${connection.timeout}")
+    @Value("${connection.timeout:50000}")
     private int connectionTimeout;
 
     @Autowired
