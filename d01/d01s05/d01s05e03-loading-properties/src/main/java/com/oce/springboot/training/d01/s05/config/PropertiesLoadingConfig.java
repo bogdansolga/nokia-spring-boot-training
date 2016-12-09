@@ -12,5 +12,6 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @ComponentScan(basePackages = "com.oce.springboot.training.d01.s05")
 @PropertySource(value = "application.properties")
+@PropertySource(value = "file:${user.home}/an-external-file.properties")
 public class PropertiesLoadingConfig {
 }
