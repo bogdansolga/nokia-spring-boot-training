@@ -9,13 +9,13 @@ import com.oce.springboot.training.d01.s02.repository.ProductRepository;
  */
 public class ProductService {
 
-    private final ProductRepository productRepository;
-
-    public ProductService(final ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    private ProductRepository productRepository;
 
     public void displayProducts() {
         productRepository.displayProducts();
+    }
+
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 }
