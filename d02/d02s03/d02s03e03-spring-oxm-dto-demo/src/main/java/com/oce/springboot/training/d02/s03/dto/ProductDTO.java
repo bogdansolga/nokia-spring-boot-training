@@ -1,5 +1,8 @@
 package com.oce.springboot.training.d02.s03.dto;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,6 +15,9 @@ public class ProductDTO implements Serializable {
 
     private int id;
 
+    @NotNull(message = "The name cannot be null")
+    @Pattern(regexp = "\\d", message = "Does not match the pattern")
+    @Size(min = 10, max = 50, message = "Nope")
     private String productName;
 
     public ProductDTO() {
