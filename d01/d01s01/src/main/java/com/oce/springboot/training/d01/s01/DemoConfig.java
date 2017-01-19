@@ -12,20 +12,20 @@ import org.springframework.context.annotation.Configuration;
 public class DemoConfig {
 
     @Bean
-    public String helloSpring() {
+    public String helloSpringAsString() {
         return "Hello, Spring!";
     }
 
     @Bean
-    public FirstSpringBean firstSpringBean() {
-        return new FirstSpringBean();
+    public HelloSpring helloSpring() {
+        return new HelloSpring();
     }
 
     /**
      * This bean is commented by default, so that we won't have two beans of the same type in the Spring IoC container
      */
     //@Bean
-    public FirstSpringBean otherFirstSpringBean() {
-        return new FirstSpringBean();
+    public HelloSpring otherHelloSpring() {
+        return new HelloSpring();
     }
 }
