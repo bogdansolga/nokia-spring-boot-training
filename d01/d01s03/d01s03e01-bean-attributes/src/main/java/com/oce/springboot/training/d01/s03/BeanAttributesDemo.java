@@ -19,6 +19,12 @@ public class BeanAttributesDemo {
         final ProductService productService = applicationContext.getBean(ProductService.class);
         productService.displayProducts();
 
+        System.out.println();
+
+        // retrieving and using the lazy initialized product service
+        final ProductService theLazyProductService = applicationContext.getBean("lazyProductService", ProductService.class);
+        theLazyProductService.displayProducts();
+
         /*
          * Study:
          *      - what happens when we comment the @Primary annotation
