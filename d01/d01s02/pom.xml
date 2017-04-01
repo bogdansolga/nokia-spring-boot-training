@@ -7,7 +7,7 @@
     <artifactId>d01s02</artifactId>
 
     <parent>
-        <groupId>com.oce</groupId>
+        <groupId>com.nokia</groupId>
         <artifactId>d01</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
