@@ -12,6 +12,7 @@
 
     <artifactId>d04s01</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <modules>
         <module>d04s01e01-presentation-layer</module>
