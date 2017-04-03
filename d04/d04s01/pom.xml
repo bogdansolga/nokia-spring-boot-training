@@ -16,5 +16,6 @@
 
     <modules>
         <module>d04s01e01-presentation-layer</module>
+        <module>d04s01e02-service-layer</module>
     </modules>
 </project>
