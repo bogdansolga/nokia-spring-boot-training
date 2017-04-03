@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author bogdan.solga
  */
 @SpringBootApplication
-public class AsynProcessingPresentationLayerDemo {
+public class AsyncProcessingPresentationLayerDemo {
 
     public static void main(String[] args) {
-        new SpringApplication(AsynProcessingPresentationLayerDemo.class).run(args);
+        new SpringApplication(AsyncProcessingPresentationLayerDemo.class).run(args);
     }
 }
