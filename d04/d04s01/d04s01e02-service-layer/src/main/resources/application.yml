@@ -1,0 +1,6 @@
+# logging settings
+logging:
+  level:
+    root: info
+    org.apache: warn
+    org.springframework: warn
