@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * A Spring Boot class which demos the async processing on the presentation layer
+ * A Spring Boot class which demos the async processing on the service layer
  *
  * @author bogdan.solga
  */
