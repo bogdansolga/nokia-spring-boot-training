@@ -18,6 +18,10 @@ public class ProductService {
         this.asyncComponent = asyncComponent;
     }
 
+    public void voidAsyncCall() {
+        asyncComponent.voidAsyncCall();
+    }
+
     public void getFuture() {
         final Future<String> future = asyncComponent.getFuture();
 
