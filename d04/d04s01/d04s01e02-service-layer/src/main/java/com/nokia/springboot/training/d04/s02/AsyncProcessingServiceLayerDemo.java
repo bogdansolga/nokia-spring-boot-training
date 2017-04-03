@@ -21,6 +21,7 @@ public class AsyncProcessingServiceLayerDemo implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         productService.getFuture();
         productService.getListenableFuture();
+        productService.getCompletableFuture();
     }
 
     public static void main(String[] args) {

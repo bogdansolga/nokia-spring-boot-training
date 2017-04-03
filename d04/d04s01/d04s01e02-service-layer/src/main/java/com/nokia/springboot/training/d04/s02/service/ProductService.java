@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.concurrent.ListenableFuture;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -18,20 +19,30 @@ public class ProductService {
     }
 
     public void getFuture() {
-        final Future<String> futureAsyncValue = asyncComponent.getFutureAsyncValue();
+        final Future<String> future = asyncComponent.getFuture();
 
         try {
-            getAndDisplayValue(futureAsyncValue);
+            getAndDisplayValue(future);
         } catch (final ExecutionException | InterruptedException e) {
             handleException(e);
         }
     }
 
     public void getListenableFuture() {
-        final ListenableFuture<String> listenableFutureAsyncValue = asyncComponent.getListenableFutureAsyncValue();
+        final ListenableFuture<String> listenableFuture = asyncComponent.getListenableFuture();
 
         try {
-            getAndDisplayValue(listenableFutureAsyncValue);
+            getAndDisplayValue(listenableFuture);
+        } catch (final ExecutionException | InterruptedException e) {
+            handleException(e);
+        }
+    }
+
+    public void getCompletableFuture() {
+        final CompletableFuture<String> completableFuture = asyncComponent.getCompletableFuture();
+
+        try {
+            getAndDisplayValue(completableFuture);
         } catch (final ExecutionException | InterruptedException e) {
             handleException(e);
         }
