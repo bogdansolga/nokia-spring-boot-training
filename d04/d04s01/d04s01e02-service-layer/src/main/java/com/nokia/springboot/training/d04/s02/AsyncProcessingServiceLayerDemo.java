@@ -19,7 +19,8 @@ public class AsyncProcessingServiceLayerDemo implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        productService.getAsyncValue();
+        productService.getFuture();
+        productService.getListenableFuture();
     }
 
     public static void main(String[] args) {

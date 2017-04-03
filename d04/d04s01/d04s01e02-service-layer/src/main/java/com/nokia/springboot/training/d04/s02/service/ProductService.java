@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 @Service
 public class ProductService {
@@ -16,16 +17,36 @@ public class ProductService {
         this.asyncComponent = asyncComponent;
     }
 
-    public void getAsyncValue() {
-        final ListenableFuture<String> asyncValue = asyncComponent.getAsyncValue();
+    public void getFuture() {
+        final Future<String> futureAsyncValue = asyncComponent.getFutureAsyncValue();
 
-        if (asyncValue.isDone()) {
-            try {
-                final String theValue = asyncValue.get();
-                System.out.println("The async returned value is '" + theValue + "'");
-            } catch (final ExecutionException | InterruptedException e) {
-                e.printStackTrace();
-            }
+        try {
+            getAndDisplayValue(futureAsyncValue);
+        } catch (final ExecutionException | InterruptedException e) {
+            handleException(e);
         }
+    }
+
+    public void getListenableFuture() {
+        final ListenableFuture<String> listenableFutureAsyncValue = asyncComponent.getListenableFutureAsyncValue();
+
+        try {
+            getAndDisplayValue(listenableFutureAsyncValue);
+        } catch (final ExecutionException | InterruptedException e) {
+            handleException(e);
+        }
+    }
+
+    private void getAndDisplayValue(final Future<String> futureValue)
+            throws ExecutionException, InterruptedException {
+
+        if (futureValue.isDone()) {
+            final String theValue = futureValue.get();
+            System.out.println("The " + futureValue.getClass().getSimpleName() + " value is '" + theValue + "'");
+        }
+    }
+
+    private void handleException(final Exception ex) {
+        ex.printStackTrace();
     }
 }
