@@ -1,4 +1,4 @@
-package com.nokia.springboot.training.d01.s02;
+package com.nokia.springboot.training.d01.s01;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
