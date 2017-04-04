@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @author bogdan.solga
  */
 @Configuration
-@ComponentScan(basePackages = "com.nokia.springboot.training")
+@ComponentScan(basePackages = "com.nokia.springboot.training.d01.s04")
 public class BeanQualifyingConfig {
 
     @Bean
