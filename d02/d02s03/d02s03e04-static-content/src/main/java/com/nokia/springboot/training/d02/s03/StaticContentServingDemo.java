@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration;
  * @author bogdan.solga
  */
 @SpringBootApplication(exclude = {
-        PropertyPlaceholderAutoConfiguration.class,
         MultipartAutoConfiguration.class,
         JmxAutoConfiguration.class
 })
