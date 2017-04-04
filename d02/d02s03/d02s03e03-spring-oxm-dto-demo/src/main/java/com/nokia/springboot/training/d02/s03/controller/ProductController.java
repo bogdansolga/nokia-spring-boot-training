@@ -5,6 +5,7 @@ import com.nokia.springboot.training.d02.s03.model.Product;
 import com.nokia.springboot.training.d02.s03.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -61,12 +60,10 @@ public class ProductController {
     @RequestMapping(
             method = RequestMethod.GET,
             path = "/{id}",
-            produces = {
-                    "application/vnd.oce.product+json"
-            }
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
+            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
-    public ProductDTO getProduct(@PathVariable final int id, final HttpServletRequest request,
-                                 final HttpServletResponse response) {
+    public ProductDTO getProduct(@PathVariable final int id) {
         return productService.get(id);
     }
 
