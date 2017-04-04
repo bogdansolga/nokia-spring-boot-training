@@ -19,4 +19,6 @@ public class ProductController {
     public Product getProduct(@PathVariable final int id) {
         return new Product(10, "Tablet");
     }
+
+    //TODO for the hands-on session - implement a method which processes a Product asynchronously
 }
