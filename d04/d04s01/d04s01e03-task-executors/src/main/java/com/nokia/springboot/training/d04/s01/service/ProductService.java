@@ -1,5 +1,7 @@
 package com.nokia.springboot.training.d04.s01.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.concurrent.ListenableFuture;
@@ -10,6 +12,8 @@ import java.util.concurrent.Future;
 
 @Service
 public class ProductService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
 
     private final AsyncComponent asyncComponent;
 
@@ -26,7 +30,7 @@ public class ProductService {
         final Future<String> future = asyncComponent.getFuture();
 
         try {
-            getAndDisplayValue(future);
+            getAndDisplayValue(future, "Future");
         } catch (final ExecutionException | InterruptedException e) {
             handleException(e);
         }
@@ -36,18 +40,18 @@ public class ProductService {
         final CompletableFuture<String> completableFuture = asyncComponent.getCompletableFuture();
 
         try {
-            getAndDisplayValue(completableFuture);
+            getAndDisplayValue(completableFuture, "CompletableFuture");
         } catch (final ExecutionException | InterruptedException e) {
             handleException(e);
         }
     }
 
-    private void getAndDisplayValue(final Future<String> futureValue)
+    private void getAndDisplayValue(final Future<String> futureValue, final String className)
             throws ExecutionException, InterruptedException {
 
         if (futureValue.isDone()) {
             final String theValue = futureValue.get();
-            System.out.println("The " + futureValue.getClass().getSimpleName() + " value is '" + theValue + "'");
+            LOGGER.info("The {} value is '{}'", className, theValue);
         }
     }
 
