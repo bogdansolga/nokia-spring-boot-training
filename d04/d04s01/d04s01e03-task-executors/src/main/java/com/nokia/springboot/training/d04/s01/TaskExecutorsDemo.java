@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * A Spring Boot class which demos the usage of {@link org.springframework.core.task.TaskExecutor}s
@@ -24,6 +25,8 @@ public class TaskExecutorsDemo implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
-        new SpringApplication(TaskExecutorsDemo.class).run(args);
+        final ConfigurableApplicationContext applicationContext =
+                new SpringApplication(TaskExecutorsDemo.class).run(args);
+        applicationContext.close();
     }
 }
