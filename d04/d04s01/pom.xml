@@ -15,7 +15,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>d04s01e01-presentation-layer</module>
-        <module>d04s01e02-service-layer</module>
+        <module>d04s01e01-async-presentation-layer</module>
+        <module>d04s01e02-async-service-layer</module>
+        <module>d04s01e03-task-executors</module>
     </modules>
 </project>

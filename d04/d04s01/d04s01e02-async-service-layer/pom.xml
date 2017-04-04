@@ -10,9 +10,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>d04s01e01-presentation-layer</artifactId>
+    <artifactId>d04s01e02-async-service-layer</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
     <dependencies>
         <dependency>
