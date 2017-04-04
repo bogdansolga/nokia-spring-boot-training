@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 @EnableAsync
 public class TaskExecutorsConfig {
 
-    private final int PROCESSORS_COUNT = Runtime.getRuntime().availableProcessors();
+    private static final int PROCESSORS_COUNT = Runtime.getRuntime().availableProcessors();
 
     @Primary
     @Bean
