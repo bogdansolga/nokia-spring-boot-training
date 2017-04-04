@@ -11,13 +11,13 @@ import java.util.Optional;
  */
 public class ProductService {
 
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public void displayProducts() {
         Optional.ofNullable(productRepository).ifPresent(ProductRepository::displayProducts);
-    }
-
-    public void setProductRepository(ProductRepository productRepository) {
-        this.productRepository = productRepository;
     }
 }

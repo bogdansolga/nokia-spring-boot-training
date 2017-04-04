@@ -20,8 +20,6 @@ public class DomainConfig {
 
     @Bean
     public ProductService productService() {
-        final ProductService productService = new ProductService();
-        productService.setProductRepository(productRepository());
-        return productService;
+        return new ProductService(productRepository());
     }
 }
