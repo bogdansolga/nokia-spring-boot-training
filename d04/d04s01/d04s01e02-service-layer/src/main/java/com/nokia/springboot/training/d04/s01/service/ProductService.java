@@ -1,4 +1,4 @@
-package com.nokia.springboot.training.d04.s02.service;
+package com.nokia.springboot.training.d04.s01.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

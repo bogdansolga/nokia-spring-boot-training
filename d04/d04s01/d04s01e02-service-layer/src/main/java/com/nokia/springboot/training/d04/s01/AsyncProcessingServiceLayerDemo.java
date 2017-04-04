@@ -1,6 +1,6 @@
-package com.nokia.springboot.training.d04.s02;
+package com.nokia.springboot.training.d04.s01;
 
-import com.nokia.springboot.training.d04.s02.service.ProductService;
+import com.nokia.springboot.training.d04.s01.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
