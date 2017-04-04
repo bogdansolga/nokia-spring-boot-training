@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 public class ProductRepository {
 
     public void displayProducts() {
+        // would connect to a real / embedded dataSource
         System.out.println("Displaying all the products");
     }
 }
