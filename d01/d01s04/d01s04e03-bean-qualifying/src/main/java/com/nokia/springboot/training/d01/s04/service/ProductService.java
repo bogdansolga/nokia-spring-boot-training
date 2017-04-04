@@ -15,8 +15,9 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    @Autowired
-    public ProductService(@Qualifier(value = "mySQLProductRepository") final ProductRepository productRepository) {
+    @Autowired // 'autowire all the needed collaborators'
+    public ProductService(@Qualifier(value = "oracleProductRepository")
+                              final ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
