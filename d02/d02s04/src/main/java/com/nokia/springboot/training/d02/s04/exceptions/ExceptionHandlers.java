@@ -45,6 +45,6 @@ public class ExceptionHandlers {
     public MessageDTO internalServerError(final Exception e) {
         LOGGER.error(e.getMessage(), e);
 
-        return new MessageDTO("Oops!");
+        return new MessageDTO("We have a little problem :)");
     }
 }
