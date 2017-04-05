@@ -20,7 +20,10 @@ public class ProductDTO implements Serializable {
     @Size(min = 10, max = 50, message = "Nope")
     private String productName;
 
-    public ProductDTO() {
+    private String sectionName;
+
+    public ProductDTO(int id, String sectionName, String name) {
+        this.id = id; this.sectionName = sectionName; this.productName = name;
     }
 
     public ProductDTO(final int id, final String productName) {
@@ -41,6 +44,10 @@ public class ProductDTO implements Serializable {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getSectionName() {
+        return sectionName;
     }
 
     @Override
