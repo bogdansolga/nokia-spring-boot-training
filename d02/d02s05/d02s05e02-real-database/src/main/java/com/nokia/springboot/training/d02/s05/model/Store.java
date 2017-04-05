@@ -5,27 +5,45 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.SequenceGenerator;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
+/*
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(
+        name = "storeTypeId",
+        discriminatorType = DiscriminatorType.INTEGER
+)
+*/
 public class Store extends AbstractEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "store_sequence_generator")
+    @SequenceGenerator(name = "store_sequence_generator",
+            sequenceName="store_sequence", allocationSize = 1)
     private int id;
 
     @Column(nullable = false, length = 50, insertable = true)
     private String name;
 
+    @Column(nullable = false, length = 50, insertable = true)
+    private String location;
+
     @OneToMany(mappedBy = "store", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<StoreSection> storeSections;
+
+    @PrePersist
+    public void beforeSave() {
+        System.out.println("Saving the Product " + getId());
+    }
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
@@ -35,7 +53,7 @@ public class Store extends AbstractEntity {
                 @JoinColumn(name = "storeId", referencedColumnName = "id")
             },
             inverseJoinColumns = {
-                    // navigating from the 'StoreManager' to the 'Manager'
+                // navigating from the 'StoreManager' to the 'Manager'
                 @JoinColumn(name = "managerId", referencedColumnName = "id")
             }
     )
@@ -55,6 +73,14 @@ public class Store extends AbstractEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(final String location) {
+        this.location = location;
     }
 
     public Set<Manager> getStoreManagers() {

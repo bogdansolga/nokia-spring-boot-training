@@ -5,12 +5,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.util.Objects;
 import java.util.Set;
@@ -20,14 +20,16 @@ import java.util.Set;
 public class StoreSection extends AbstractEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "section_sequence_generator")
+    @SequenceGenerator(name = "section_sequence_generator", sequenceName = "section_sequence",
+            allocationSize = 1)
     private int id;
 
     @Column(name = "name", length = 40)
     private String sectionName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "storeId")
+    @JoinColumn(name = "storeid")
     private Store store;
 
     // 'mappedby' tells the persistence provider that the join column is in the Product table

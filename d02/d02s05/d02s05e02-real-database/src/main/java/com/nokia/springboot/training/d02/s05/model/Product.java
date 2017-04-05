@@ -4,11 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.util.Objects;
 
@@ -24,14 +24,16 @@ public class Product extends AbstractEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "product_sequence_generator")
+    @SequenceGenerator(name = "product_sequence_generator", sequenceName="product_sequence",
+            allocationSize = 1)
     private int id;
 
     @Column(name = "name", unique = true, nullable = false, insertable = true, updatable = false, length = 50)
     private String name;
 
     @ManyToOne(targetEntity = StoreSection.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "sectionId")
+    @JoinColumn(name = "sectionid", referencedColumnName = "id")
     private StoreSection storeSection;
 
     public Product() {
