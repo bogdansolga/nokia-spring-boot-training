@@ -24,7 +24,7 @@ public class TaskExecutorConfig {
         shortLivedTaskExecutor.setKeepAliveSeconds(20);
         shortLivedTaskExecutor.setQueueCapacity(100);
         shortLivedTaskExecutor.setThreadGroupName("quarts-executor-thread-pool-");
-        shortLivedTaskExecutor.setThreadNamePrefix("quartz-lived-exec-thread-");
+        shortLivedTaskExecutor.setThreadNamePrefix("quartz-thread-");
         shortLivedTaskExecutor.setWaitForTasksToCompleteOnShutdown(true);
         shortLivedTaskExecutor.setAwaitTerminationSeconds(5);
         shortLivedTaskExecutor.setAllowCoreThreadTimeOut(true);
