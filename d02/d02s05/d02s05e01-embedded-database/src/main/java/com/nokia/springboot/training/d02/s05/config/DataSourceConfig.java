@@ -69,7 +69,7 @@ public class DataSourceConfig {
 
         emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         emf.setPersistenceUnitName("default");
-        emf.setPackagesToScan("com.oce.springboot.training.d02.s05.repository");
+        emf.setPackagesToScan("com.nokia.springboot.training.d02.s05.repository");
 
         return emf;
     }
