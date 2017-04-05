@@ -2,6 +2,8 @@ package com.nokia.springboot.training.d02.s05.controller;
 
 import com.nokia.springboot.training.d02.s05.model.Product;
 import com.nokia.springboot.training.d02.s05.dto.ProductDTO;
+import com.nokia.springboot.training.d02.s05.profiling.MemoryProfiling;
+import com.nokia.springboot.training.d02.s05.profiling.Profiled;
 import com.nokia.springboot.training.d02.s05.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -76,6 +78,8 @@ public class ProductController {
             method = RequestMethod.GET,
             path = ""
     )
+    @Profiled
+    @MemoryProfiling
     public List<ProductDTO> getAll() {
         return productService.getAll();
     }
