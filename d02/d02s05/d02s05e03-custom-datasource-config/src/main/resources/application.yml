@@ -15,6 +15,12 @@ spring:
     schema: classpath:schema-postgresql.sql
     initialize: false
 
+    # the properties for the Hikari connection pool
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 1
+      pool-name: spring-boot-pool
+
   # JPA properties - JpaProperties
   jpa:
     hibernate:
