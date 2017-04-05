@@ -6,11 +6,11 @@ spring:
   # DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
   datasource:
     driver-class-name: org.postgresql.Driver
-    name: spring_boot
-    password: postgres
+    name: nokia
+    password: nokia
     platform: postgresql
-    username: postgres
-    url: jdbc:postgresql://localhost:5432/spring_boot
+    username: dbuser
+    url: jdbc:postgresql://localhost:5432/nokia
     initialize: false
 
   # JPA properties - JpaProperties
