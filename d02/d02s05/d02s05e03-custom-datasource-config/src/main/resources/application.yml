@@ -6,24 +6,19 @@ spring:
   # DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
   datasource:
     driver-class-name: org.postgresql.Driver
-    name: spring_boot
-    password: postgres
+    name: nokia
+    password: nokia
     platform: postgresql
-    username: postgres
-    url: jdbc:postgresql://localhost:5432/spring_boot
+    username: dbuser
+    url: jdbc:postgresql://localhost:5432/nokia
+    data: classpath:data-postgresql.sql
+    schema: classpath:schema-postgresql.sql
     initialize: false
-    type: com.zaxxer.hikari.HikariDataSource
-
-    # the properties for the Hikari connection pool
-    hikari:
-      maximum-pool-size: 10
-      minimum-idle: 1
-      pool-name: spring-boot-pool
 
   # JPA properties - JpaProperties
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
 
     properties:
       hibernate:
@@ -39,7 +34,6 @@ spring:
 logging:
   level:
     root: info
-    com.zaxxer.hikari: warn
     org.apache: warn
     org.springframework: warn
     org.hibernate: warn
