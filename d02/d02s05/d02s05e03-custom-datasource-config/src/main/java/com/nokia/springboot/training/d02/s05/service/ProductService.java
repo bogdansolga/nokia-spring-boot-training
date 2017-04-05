@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
-
 @Service
 public class ProductService {
 
@@ -17,13 +15,6 @@ public class ProductService {
     @Autowired
     public ProductService(final ProductRepository productRepository) {
         this.productRepository = productRepository;
-    }
-
-    @PostConstruct
-    public void init() {
-        final Product product = new Product();
-        product.setName("A default product");
-        create(product);
     }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
