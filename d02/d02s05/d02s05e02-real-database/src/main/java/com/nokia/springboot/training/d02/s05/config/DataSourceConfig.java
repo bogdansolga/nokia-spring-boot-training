@@ -3,6 +3,7 @@ package com.nokia.springboot.training.d02.s05.config;
 import com.nokia.springboot.training.d02.s05.model.Product;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * A simple {@link javax.sql.DataSource} configuration, which:
@@ -13,5 +14,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 @Configuration
 @EnableJpaRepositories(basePackages = "com.nokia.springboot.training.d02.s05.repository")
+@EnableTransactionManagement
 public class DataSourceConfig {
 }
