@@ -56,7 +56,9 @@ public class ProductService {
     }
 
     private Function<Product, ProductDTO> getProductConverter() {
-        return product -> new ProductDTO(product.getId(), product.getName());
+        return product -> new ProductDTO(product.getId(),
+                product.getStoreSection().getSectionName(),
+                product.getName());
     }
 
     private Predicate<Product> filterItem() {
