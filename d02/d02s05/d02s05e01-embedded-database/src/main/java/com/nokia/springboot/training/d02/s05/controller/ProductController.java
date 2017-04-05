@@ -14,7 +14,6 @@ import org.springframework.web.context.request.async.DeferredResult;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
 
 /**
  * A Spring {@link RestController} used to showcase the modeling of a REST controller for CRUD operations
@@ -27,12 +26,11 @@ import java.util.concurrent.Executor;
 )
 public class ProductController {
 
-    private final Executor executor;
     private final ProductService productService;
 
     @Autowired
-    public ProductController(final Executor executor, final ProductService productService) {
-        this.executor = executor; this.productService = productService;
+    public ProductController(final ProductService productService) {
+        this.productService = productService;
     }
 
     /**
@@ -64,7 +62,7 @@ public class ProductController {
     )
     public DeferredResult<Product> getProduct(@PathVariable final int id)
             throws ExecutionException, InterruptedException {
-        final CompletableFuture<Product> futureProduct = CompletableFuture.supplyAsync(() -> productService.get(id), executor);
+        final CompletableFuture<Product> futureProduct = CompletableFuture.supplyAsync(() -> productService.get(id));
 
         final DeferredResult<Product> deferredResult = new DeferredResult<>();
         deferredResult.setResult(futureProduct.get());
