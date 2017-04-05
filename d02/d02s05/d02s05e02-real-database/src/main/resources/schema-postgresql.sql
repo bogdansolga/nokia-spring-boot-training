@@ -1,5 +1,9 @@
 START TRANSACTION;
 
+-- CREATE DATABASE nokia;
+-- CREATE USER dbuser WITH password 'nokia';
+-- GRANT ALL ON DATABASE nokia TO dbuser;
+
 -- tables must be dropped in the reversed order of their FK relationships
 DROP TABLE IF EXISTS StoreManager CASCADE;
 DROP TABLE IF EXISTS Manager CASCADE;
