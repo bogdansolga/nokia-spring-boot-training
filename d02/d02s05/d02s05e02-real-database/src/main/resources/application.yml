@@ -11,12 +11,14 @@ spring:
     platform: postgresql
     username: dbuser
     url: jdbc:postgresql://localhost:5432/nokia
+    data: classpath:data-postgresql.sql
+    schema: classpath:schema-postgresql.sql
     initialize: false
 
   # JPA properties - JpaProperties
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
 
     properties:
       hibernate:

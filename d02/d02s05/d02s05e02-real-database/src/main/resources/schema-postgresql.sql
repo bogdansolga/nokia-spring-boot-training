@@ -1,0 +1,70 @@
+START TRANSACTION;
+
+-- tables must be dropped in the reversed order of their FK relationships
+DROP TABLE IF EXISTS StoreManager CASCADE;
+DROP TABLE IF EXISTS Manager CASCADE;
+
+DROP TABLE IF EXISTS Product;
+DROP TABLE IF EXISTS Section;
+DROP TABLE IF EXISTS Store;
+DROP TABLE IF EXISTS StoreType;
+
+DROP SEQUENCE IF EXISTS section_sequence;
+DROP SEQUENCE IF EXISTS store_sequence;
+DROP SEQUENCE IF EXISTS product_sequence;
+
+CREATE TABLE StoreType (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Store (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(30) NOT NULL,
+  location VARCHAR(20) NOT NULL,
+  storeTypeId INTEGER,
+  parentStoreId INTEGER DEFAULT NULL,
+
+  FOREIGN KEY (parentStoreId) REFERENCES Store(id) ON DELETE CASCADE,
+  FOREIGN KEY (storeTypeId) REFERENCES StoreType(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Section (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  storeId INTEGER NOT NULL,
+
+  FOREIGN KEY (storeId) REFERENCES Store(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Product (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  sectionId INTEGER NOT NULL,
+
+  FOREIGN KEY (sectionId) REFERENCES Section(id) ON DELETE CASCADE
+);
+
+CREATE TABLE Manager (
+  id INTEGER NOT NULL,
+  name VARCHAR(50) NOT NULL,
+
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE StoreManager (
+  storeId INTEGER NOT NULL,
+  managerId INTEGER NOT NULL,
+
+  PRIMARY KEY (storeId, managerId),
+
+  FOREIGN KEY (storeId) REFERENCES Store(id) ON DELETE CASCADE,
+  FOREIGN KEY (managerId) REFERENCES Manager(id) ON DELETE CASCADE
+);
+
+-- create the needed sequences
+CREATE SEQUENCE section_sequence    START 10 INCREMENT 1;
+CREATE SEQUENCE store_sequence      START 10 INCREMENT 1;
+CREATE SEQUENCE product_sequence    START 10 INCREMENT 1;
+
+COMMIT;
