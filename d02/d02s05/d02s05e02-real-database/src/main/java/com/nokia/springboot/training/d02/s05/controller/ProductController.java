@@ -1,15 +1,20 @@
 package com.nokia.springboot.training.d02.s05.controller;
 
 import com.nokia.springboot.training.d02.s05.model.Product;
+import com.nokia.springboot.training.d02.s05.dto.ProductDTO;
 import com.nokia.springboot.training.d02.s05.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * A Spring {@link RestController} used to showcase the modeling of a REST controller for CRUD operations
@@ -30,9 +35,9 @@ public class ProductController {
     }
 
     /**
-     * Creates the referenced {@link Product}
+     * Creates a {@link Product} from the referenced {@link ProductDTO}
      *
-     * @param product the {@link Product} to be created
+     * @param productDTO the {@link Product} to be created
      *
      * @return a {@link ResponseEntity} with the appropriate {@link HttpStatus}
      */
@@ -40,8 +45,8 @@ public class ProductController {
             method = RequestMethod.POST,
             path = ""
     )
-    public ResponseEntity create(@RequestBody Product product) {
-        productService.create(product);
+    public ResponseEntity create(@RequestBody @Valid ProductDTO productDTO) {
+        productService.create(productDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
@@ -54,9 +59,11 @@ public class ProductController {
      */
     @RequestMapping(
             method = RequestMethod.GET,
-            path = "/{id}"
+            path = "/{id}",
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
+            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
-    public Product getProduct(@PathVariable final int id) {
+    public ProductDTO getProduct(@PathVariable final int id) {
         return productService.get(id);
     }
 
@@ -69,7 +76,7 @@ public class ProductController {
             method = RequestMethod.GET,
             path = ""
     )
-    public Iterable<Product> getAll() {
+    public List<ProductDTO> getAll() {
         return productService.getAll();
     }
 
@@ -77,7 +84,7 @@ public class ProductController {
      * Updates the {@link Product} with the specified ID with the details from the referenced {@link Product}
      *
      * @param id the ID of the updated {@link Product}
-     * @param product the new {@link Product} details
+     * @param productDTO the new {@link Product} details
      *
      * @return a {@link ResponseEntity} with the appropriate {@link HttpStatus}
      */
@@ -85,8 +92,8 @@ public class ProductController {
             method = RequestMethod.PUT,
             path = "/{id}"
     )
-    public ResponseEntity update(@PathVariable final int id, @RequestBody Product product) {
-        productService.update(id, product);
+    public ResponseEntity update(@PathVariable final int id, @RequestBody ProductDTO productDTO) {
+        productService.update(id, productDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
