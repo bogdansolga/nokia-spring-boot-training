@@ -4,7 +4,6 @@ import com.nokia.springboot.training.d02.s05.model.Product;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,7 +22,6 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 
     List<Product> findByPrice(final double price);
 
-    @Async("theOtherExecutor")
     Future<Product> findProductById(int id);
 
     @Query(value = "SELECT product FROM Product product WHERE product.name LIKE :name")
