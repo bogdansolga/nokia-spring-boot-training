@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.PostConstruct;
 
 @Service
 public class ProductService {
@@ -23,7 +24,15 @@ public class ProductService {
         this.jdbcTemplate = jdbcTemplate; this.productRepository = productRepository;
     }
 
-    @Scheduled(fixedDelay = 10000)
+    @PostConstruct
+    public void init() {
+        final Product product = new Product();
+        product.setName("A default product");
+        product.setPrice(25);
+        create(product);
+    }
+
+    //@Scheduled(fixedDelay = 10000)
     public void searchForProducts() {
         //TODO insert complex logic here
 
