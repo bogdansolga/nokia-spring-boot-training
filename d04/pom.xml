@@ -17,5 +17,7 @@
     <modules>
         <module>d04s01</module>
         <module>d04s02</module>
+        <module>d04s03</module>
+        <module>d04s04</module>
     </modules>
 </project>
