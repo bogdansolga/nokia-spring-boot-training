@@ -33,18 +33,17 @@ public class ProductRESTControllerTest {
     @Before
     public void setup () {
         DefaultMockMvcBuilder builder = MockMvcBuilders.webAppContextSetup(webApplicationContext);
-        this.mockMvc = builder.build();
+        mockMvc = builder.build();
     }
 
     @Test
-    public void shouldAddUsers () throws Exception {
-
+    public void shouldAddProducts() throws Exception {
         MockHttpServletRequestBuilder builder =
                 MockMvcRequestBuilders.post("/product")
                                       .contentType(MediaType.APPLICATION_JSON)
                                       .content(createProduct("Tablet"));
 
-        this.mockMvc.perform(builder)
+        mockMvc.perform(builder)
                     .andExpect(MockMvcResultMatchers.status()
                                                     .isOk());
 
@@ -53,13 +52,13 @@ public class ProductRESTControllerTest {
                                         .contentType(MediaType.APPLICATION_JSON)
                                         .content(createProduct("phone"));
 
-        this.mockMvc.perform(builder)
+        mockMvc.perform(builder)
                     .andExpect(MockMvcResultMatchers.status().isOk());
 
         // get all products
         builder = MockMvcRequestBuilders.get("/product")
                                         .accept(MediaType.APPLICATION_JSON);
-        this.mockMvc.perform(builder)
+        mockMvc.perform(builder)
                     .andExpect(MockMvcResultMatchers.status().isOk())
                     .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)))
                     .andDo(MockMvcResultHandlers.print());
