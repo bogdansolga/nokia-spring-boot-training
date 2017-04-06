@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -42,6 +43,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/admin").hasAnyRole("ADMIN", "MANAGER")
                 .anyRequest().authenticated()
                 .and()
+                    .requiresChannel()
+                    .anyRequest()
+                    .requiresSecure() // requires HTTPS channel
+                .and()
         .formLogin();
 
         // setAuthenticated();
@@ -59,7 +64,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private void setAuthenticated() {
         final SecurityContext securityContext = SecurityContextHolder.getContext();
-        Authentication authentication = securityContext.getAuthentication();
+
+        final Authentication authentication = securityContext.getAuthentication();
+        if (authentication.isAuthenticated()) {
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            // use the userDetails...
+        }
+
         authentication.setAuthenticated(true);
     }
 
