@@ -11,6 +11,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static com.jayway.restassured.RestAssured.when;
@@ -64,7 +65,6 @@ public class ProductControllerTest extends AbstractTransactionalTestNGSpringCont
     }
 
     // a sample of using a dataProvider
-    /*
     @Test(dataProvider = "dataProvider")
     public void shouldGetAllProducts(String request, int statusCode) {
         when()
@@ -79,5 +79,4 @@ public class ProductControllerTest extends AbstractTransactionalTestNGSpringCont
     public Object[][] dataProvider() {
         return null;
     }
-    */
 }
