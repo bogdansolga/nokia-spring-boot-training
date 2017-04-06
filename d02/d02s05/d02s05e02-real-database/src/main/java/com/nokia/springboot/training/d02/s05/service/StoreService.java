@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
-import java.util.function.DoubleFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -38,7 +37,8 @@ public class StoreService {
                 store.getId(),
                 store.getName(),
                 store.getStoreSections()
-                     .stream().map(StoreSection::getSectionName)
+                     .stream()
+                     .map(StoreSection::getSectionName)
                      .collect(Collectors.toSet())
         );
     }
