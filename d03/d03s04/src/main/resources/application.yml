@@ -33,6 +33,7 @@ logging:
 
 # actuator config
 endpoints:
+  sensitive: false
   actuator:
     enabled: true
 
@@ -47,8 +48,9 @@ endpoints:
 
 info:
   app:
+    key: value
+    something: anything
     java:
       source: 1.8
       target: 1.8
-  owner: OCE
-  key: value
+  owner: Nokia
