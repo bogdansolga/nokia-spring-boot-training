@@ -27,7 +27,7 @@ public class SimpleScheduledTasks {
         LOGGER.info("[fixedRateTask] Running at {}...", new Date());
     }
 
-    @Scheduled(initialDelay = 10000) // 10 seconds
+    @Scheduled(fixedDelayString = "10000") // 10 seconds
     public void initialDelayTask() {
         LOGGER.info("[initialDelayTask] Running at {}...", new Date());
     }
