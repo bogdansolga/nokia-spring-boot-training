@@ -39,6 +39,12 @@ public class ProductService {
         jdbcTemplate.execute("SELECT * FROM product p WHERE p.name = ?");
     }
 
+    @Transactional(
+            readOnly = false,
+            propagation = Propagation.REQUIRED,
+            isolation = Isolation.READ_COMMITTED,
+            rollbackFor = IllegalArgumentException.class
+    )
     public void create(final Product product) {
         productRepository.save(product);
     }
@@ -54,6 +60,10 @@ public class ProductService {
         return productRepository.findOne(id);
     }
 
+    @Transactional(
+            readOnly = true,
+            propagation = Propagation.SUPPORTS
+    )
     public Iterable<Product> getAll() {
         return productRepository.findAll();
     }
