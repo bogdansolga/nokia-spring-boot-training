@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
+
 @Controller
 public class SimpleRestController {
 
@@ -12,7 +14,7 @@ public class SimpleRestController {
             value = "/hello"
     )
     public @ResponseBody String hello() {
-        return "Hello, Spring Boot!";
+        return "Hello, Spring Boot! The current date and time is " + new Date();
     }
 
     // a redirect sample - the method response is a page name, not a ResponseBody
