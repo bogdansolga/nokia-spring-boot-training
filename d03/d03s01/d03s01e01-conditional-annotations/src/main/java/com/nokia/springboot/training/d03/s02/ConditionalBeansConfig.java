@@ -39,6 +39,7 @@ public class ConditionalBeansConfig {
     @Bean
     @ConditionalOnProperty(name = "cool.feature", havingValue = "enabled")
     public Object coolFeature() {
+        System.out.println("Using our cool feature :)");
         return new Object();
     }
 }
