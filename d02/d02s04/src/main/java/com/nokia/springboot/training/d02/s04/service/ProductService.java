@@ -6,6 +6,7 @@ import com.nokia.springboot.training.d02.s04.repository.ProductRepository;
 import com.nokia.springboot.training.d02.s04.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -62,7 +63,14 @@ public class ProductService {
 
     private void validateRequest(final ProductDTO productDTO) {
         Optional.ofNullable(productDTO)
-                .orElseThrow(() -> new IllegalArgumentException("Cannot process a null product"));
+                .orElseThrow(() ->
+                    new IllegalArgumentException("Cannot process a null product"));
+
+        if (StringUtils.isEmpty(productDTO.getProductName())) {
+            throw new IllegalArgumentException("Cannot save an empty product name");
+        }
+
+        // further validations could be added
     }
 
     private Product validateAndGetProduct(final int id) {
