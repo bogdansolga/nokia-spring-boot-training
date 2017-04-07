@@ -13,7 +13,7 @@ public class AsyncProductEventHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(AsyncProductEventHandler.class);
 
     @Async
-    @EventListener
+    @EventListener(condition = "#productRetrievedEvent.productName.length() > 0")
     public void processAsyncProductEvent(final ProductRetrievedEvent productRetrievedEvent) {
         LOGGER.info("Processing the product '{}' async...", productRetrievedEvent.getProductName());
     }
