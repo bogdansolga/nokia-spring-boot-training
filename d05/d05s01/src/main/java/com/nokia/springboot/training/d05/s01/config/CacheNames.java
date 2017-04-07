@@ -1,4 +1,4 @@
-package com.nokia.springboot.training.d04.s04.config;
+package com.nokia.springboot.training.d05.s01.config;
 
 public final class CacheNames {
 

@@ -1,6 +1,6 @@
-package com.nokia.springboot.training.d04.s04.dto;
+package com.nokia.springboot.training.d05.s01.dto;
 
-import com.nokia.springboot.training.d04.s04.model.Product;
+import com.nokia.springboot.training.d05.s01.model.Product;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.nokia.springboot.training.d04.s04.dto;
+package com.nokia.springboot.training.d05.s01.dto;
 
 import java.io.Serializable;
 

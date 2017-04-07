@@ -1,4 +1,4 @@
-package com.nokia.springboot.training.d04.s04.model;
+package com.nokia.springboot.training.d05.s01.model;
 
 import java.io.Serializable;
 

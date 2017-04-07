@@ -1,6 +1,6 @@
-package com.nokia.springboot.training.d04.s04.exceptions;
+package com.nokia.springboot.training.d05.s01.exceptions;
 
-import com.nokia.springboot.training.d04.s04.dto.MessageDTO;
+import com.nokia.springboot.training.d05.s01.dto.MessageDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

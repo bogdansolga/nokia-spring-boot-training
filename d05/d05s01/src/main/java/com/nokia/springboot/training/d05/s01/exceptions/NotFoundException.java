@@ -1,4 +1,4 @@
-package com.nokia.springboot.training.d04.s04.exceptions;
+package com.nokia.springboot.training.d05.s01.exceptions;
 
 /**
  * A runtime exception thrown when an entity was not found

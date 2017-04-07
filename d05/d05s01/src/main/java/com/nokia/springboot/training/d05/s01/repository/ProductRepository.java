@@ -1,6 +1,6 @@
-package com.nokia.springboot.training.d04.s04.repository;
+package com.nokia.springboot.training.d05.s01.repository;
 
-import com.nokia.springboot.training.d04.s04.model.Product;
+import com.nokia.springboot.training.d05.s01.model.Product;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;

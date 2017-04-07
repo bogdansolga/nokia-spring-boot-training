@@ -1,4 +1,4 @@
-package com.nokia.springboot.training.d04.s04;
+package com.nokia.springboot.training.d05.s01;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

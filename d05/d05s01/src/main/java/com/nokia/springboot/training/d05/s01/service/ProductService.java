@@ -1,9 +1,10 @@
-package com.nokia.springboot.training.d04.s04.service;
+package com.nokia.springboot.training.d05.s01.service;
 
-import com.nokia.springboot.training.d04.s04.dto.ProductDTO;
-import com.nokia.springboot.training.d04.s04.exceptions.NotFoundException;
-import com.nokia.springboot.training.d04.s04.model.Product;
-import com.nokia.springboot.training.d04.s04.repository.ProductRepository;
+import com.nokia.springboot.training.d05.s01.dto.ProductDTO;
+import com.nokia.springboot.training.d05.s01.exceptions.NotFoundException;
+import com.nokia.springboot.training.d05.s01.model.Product;
+import com.nokia.springboot.training.d05.s01.repository.ProductRepository;
+import com.nokia.springboot.training.d05.s01.config.CacheNames;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.function.Function;
-
-import static com.nokia.springboot.training.d04.s04.config.CacheNames.PRODUCTS;
 
 @Service
 public class ProductService {
@@ -29,7 +28,7 @@ public class ProductService {
     }
 
     @Cacheable(
-            cacheNames = PRODUCTS,
+            cacheNames = CacheNames.PRODUCTS,
             key = "#id"
     )
     public ProductDTO get(final int id) {
@@ -43,7 +42,7 @@ public class ProductService {
     }
 
     @CacheEvict(
-            cacheNames = PRODUCTS,
+            cacheNames = CacheNames.PRODUCTS,
             key = "#id"
     )
     public void removeProduct(final int id) {

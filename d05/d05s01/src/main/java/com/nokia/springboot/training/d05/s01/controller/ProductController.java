@@ -1,7 +1,7 @@
-package com.nokia.springboot.training.d04.s04.controller;
+package com.nokia.springboot.training.d05.s01.controller;
 
-import com.nokia.springboot.training.d04.s04.service.ProductService;
-import com.nokia.springboot.training.d04.s04.dto.ProductDTO;
+import com.nokia.springboot.training.d05.s01.service.ProductService;
+import com.nokia.springboot.training.d05.s01.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

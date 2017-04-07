@@ -1,4 +1,4 @@
-package com.nokia.springboot.training.d04.s04.config;
+package com.nokia.springboot.training.d05.s01.config;
 
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Collections;
 
-import static com.nokia.springboot.training.d04.s04.config.CacheNames.PRODUCTS;
+import static com.nokia.springboot.training.d05.s01.config.CacheNames.PRODUCTS;
 
 @Configuration
 @EnableCaching
