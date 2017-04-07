@@ -1,7 +1,7 @@
 # the name of the current app
 spring:
   application:
-    name: spring-boot-properties-usage-demo
+    name: spring-boot-yaml-properties-usage-demo
 
 # logging settings
 logging:
