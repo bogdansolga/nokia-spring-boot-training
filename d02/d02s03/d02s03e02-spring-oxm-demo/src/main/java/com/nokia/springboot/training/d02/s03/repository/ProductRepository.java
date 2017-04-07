@@ -1,7 +1,6 @@
 package com.nokia.springboot.training.d02.s03.repository;
 
 import com.nokia.springboot.training.d02.s03.model.Product;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -23,14 +22,16 @@ public class ProductRepository {
 
     @SuppressWarnings("unused")
     public Product get(int id) {
-        return getDefaultProduct();
+        return products.stream()
+                       .filter(product -> product.getId() == id)
+                       .findFirst()
+                       .orElse(null);
     }
 
     public List<Product> getAll() {
         return products;
     }
 
-    @Async
     public void create(final Product product) {
         products.add(product);
     }
