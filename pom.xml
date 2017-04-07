@@ -22,6 +22,7 @@
         <module>d02</module>
         <module>d03</module>
         <module>d04</module>
+        <module>d05</module>
     </modules>
 
     <properties>
