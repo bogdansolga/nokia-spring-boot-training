@@ -3,8 +3,6 @@ package com.nokia.springboot.training.d02.s05.service;
 import com.nokia.springboot.training.d02.s05.repository.ProductRepository;
 import com.nokia.springboot.training.d02.s05.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -32,7 +30,6 @@ public class ProductService {
         create(product);
     }
 
-    //@Scheduled(fixedDelay = 10000)
     public void searchForProducts() {
         //TODO insert complex logic here
 
@@ -55,7 +52,6 @@ public class ProductService {
             isolation = Isolation.READ_COMMITTED,
             rollbackFor = {IllegalArgumentException.class, IllegalAccessException.class}
     )
-    @Cacheable(cacheManager = "cacheManager", cacheNames = "products", condition = "id > 10")
     public Product get(final int id) {
         return productRepository.findOne(id);
     }
@@ -76,7 +72,6 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    @CacheEvict(cacheNames = "products", condition = "id > 10")
     public void delete(final int id) {
         productRepository.delete(id);
     }
