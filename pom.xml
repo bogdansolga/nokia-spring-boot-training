@@ -37,6 +37,7 @@
         <restassured.version>2.9.0</restassured.version>
 
         <spring-boot.version>1.5.2.RELEASE</spring-boot.version>
+        <spring-cloud.dependencies.version>Dalston.RC1</spring-cloud.dependencies.version>
 
         <testng.version>6.9.13.6</testng.version>
     </properties>
