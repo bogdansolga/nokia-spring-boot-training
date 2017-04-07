@@ -1,0 +1,17 @@
+# Reference - http://cloud.spring.io/spring-cloud-static/spring-cloud.html#_spring_cloud_config
+spring:
+  # indent the returned JSON responses
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+# logging settings
+logging:
+  level:
+    root: info
+    org.apache: warn
+    org.springframework: warn
+
+  pattern:
+    # special characters need to be escaped / quoted
+    console: '%clr([%date{HH:mm:ss.SSS}]){faint} %clr(%thread) %clr(%2p) %clr(%-40.40logger{36}){cyan} %m%n%wex'

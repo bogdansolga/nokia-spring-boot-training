@@ -1,0 +1,8 @@
+# Spring Cloud-based services look for a file called src/main/resources/bootstrap.(properties,yml) that it expects to find to bootstrap the service
+spring:
+  application:
+    name: products-main
+
+  cloud:
+    config:
+      uri: http://localhost:8888
